@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai Career Guidance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .career-pathway {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+            display: none;
+        }
+        .career-pathway h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .career-pathway h3 {
+            color: #28a745;
+            margin-top: 20px;
+        }
+        .career-pathway ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .career-pathway ul li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #010502;
+            border-radius: 4px;
+        }
+        .career-pathway ul li strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ai Career Guidance System</h1>
+    <form id="careerForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"  placeholder="Enter Name" required><br><br>
+        
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"  placeholder="Enter Address" required><br><br>
+        
+        <label for="education">Education:</label>
+        <select id="education" name="education"  placeholder="" required>
+            <option value="-">Education</option>
+            <option value="10th">10th</option>
+            <option value="12th">12th</option>
+        </select><br><br>
+        
+        <label for="category">Interested Category:</label>
+        <select id="category" name="category" required>
+            <option value="-">Enter Interested Category</option>
+            <option value="engineering">Engineering</option>
+            <option value="medical">Medical</option>
+        </select><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="careerPathway" class="career-pathway">
+        <h2>Career Pathway</h2>
+        <div id="pathwayDetails"></div>
+    </div>
+
+    <script>
+        document.getElementById('careerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const category = document.getElementById('category').value;
+            let pathway = '';
+
+            if (category === 'engineering') {
+                pathway = `
+                    <h3>Career Path for Engineering</h3>
+                    <p><strong>Complete 12th (PCM):</strong> Pursue B.Tech/BE in various specializations.</p>
+                    <ul>
+                        <li>
+                            <strong>Software Engineer</strong><br>
+                            Description: Design, develop, and maintain software applications to solve real-world problems.<br>
+                            Exams Required: JEE Main, JEE Advanced, State Entrance Exams Test<br>
+                            Specializations: Web Development, Mobile Applications, Cloud Computing<br>
+                            Other Details: Requires strong programming and problem-solving skills.
+                        </li>
+                        <li>
+                            <strong>Mechanical Engineer</strong><br>
+                            Description: Work with machines, mechanical systems, and manufacturing processes.<br>
+                            Exams Required: JEE Main, JEE Advanced  State Entrance Exams Test<br>
+                            Specializations: Automobile Engineering, Robotics, Aerospace Engineering<br>
+                            Other Details: Focus on design, analysis, and maintenance of mechanical systems.
+                        </li>
+                        <li>
+                            <strong>Civil Engineer</strong><br>
+                            Description: Plan, design, and oversee construction projects like buildings, bridges, and roads.<br>
+                            Exams Required: JEE Main, JEE Advanced  State Entrance Exams Test <br>
+                            Specializations: Structural Engineering, Environmental Engineering<br>
+                            Other Details: Requires knowledge of construction methods and materials.
+                        </li>
+                        <li>
+                            <strong>Electrical Engineer</strong><br>
+                            Description: Design and develop electrical systems and devices.<br>
+                            Exams Required: JEE Main, JEE Advanced, State Entrance Exams Test, GATE<br>
+                            Specializations: Power Systems, Renewable Energy, Electronics<br>
+                            Other Details: Requires expertise in electrical circuits and systems.
+                        </li>
+                        <li>
+                            <strong>Data Scientist</strong><br>
+                            Description: Analyze and interpret complex data to help decision-making.<br>
+                            Exams Required: B.Tech/BE in CS/IT, GATE<br>
+                            Specializations: Big Data, AI/ML, Data Analysis<br>
+                            Other Details: Requires strong statistical and analytical skills.
+                        </li>
+                        <li>
+                            <strong>Aerospace Engineer</strong><br>
+                            Description: Design and maintain aircraft, spacecraft, and related technologies.<br>
+                            Exams Required: JEE Main, JEE Advanced , State Entrance Exams Test<br>
+                            Specializations: Aerodynamics, Propulsion Systems, Avionics<br>
+                            Other Details: Focus on high-precision and safety.
+                        </li>
+                        <li>
+                            <strong>Chemical Engineer</strong><br>
+                            Description: Develop and optimize processes for chemical production and use.<br>
+                            Exams Required: JEE Main, JEE Advanced,  State Entrance Exams Test<br>
+                            Specializations: Process Engineering, Materials Science, Environmental Engineering<br>
+                            Other Details: Requires knowledge of chemical processes and safety protocols.
+                        </li>
+                    </ul>
+                `;
+            } else if (category === 'medical') {
+                pathway = `
+                    <h3>Career Path for Medical</h3>
+                    <p><strong>Complete 12th (PCB):</strong> Pursue MBBS and specialize in various medical fields.</p>
+                    <ul>
+                        <li>
+                            <strong>Doctor</strong><br>
+                            Description: Diagnose and treat illnesses, injuries, and other health conditions.<br>
+                            Exams Required: NEET<br>
+                            Specializations: Cardiology, Neurology, Pediatrics<br>
+                            Other Details: Requires strong knowledge of medical sciences and patient care.
+                        </li>
+                        <li>
+                            <strong>Surgeon</strong><br>
+                            Description: Perform surgical procedures to treat diseases, injuries, and deformities.<br>
+                            Exams Required: NEET<br>
+                            Specializations: General Surgery, Orthopedic Surgery, Neurosurgery<br>
+                            Other Details: Requires precision and extensive training.
+                        </li>
+                        <li>
+                            <strong>Dentist</strong><br>
+                            Description: Diagnose and treat issues related to teeth and gums.<br>
+                            Exams Required: NEET<br>
+                            Specializations: Orthodontics, Oral Surgery, Pediatric Dentistry<br>
+                            Other Details: Requires knowledge of dental procedures and patient care.
+                        </li>
+                        <li>
+                            <strong>Pharmacist</strong><br>
+                            Description: Prepare and dispense medications, and provide advice on their use.<br>
+                            Exams Required: State-level Pharmacy Entrance Exams<br>
+                            Specializations: Clinical Pharmacy, Pharmaceutical Research, Drug Development<br>
+                            Other Details: Requires knowledge of medications and their effects.
+                        </li>
+                        <li>
+                            <strong>Medical Researcher</strong><br>
+                            Description: Conduct research to improve health outcomes and develop new treatments.<br>
+                            Exams Required: NEET, PG Entrance Exams<br>
+                            Specializations: Biomedical Research, Clinical Research, Epidemiology<br>
+                            Other Details: Requires strong analytical and research skills.
+                        </li>
+                        <li>
+                            <strong>Radiologist</strong><br>
+                            Description: Use medical imaging to diagnose and treat diseases.<br>
+                            Exams Required: NEET, PG Entrance Exams<br>
+                            Specializations: Diagnostic Radiology, Interventional Radiology, Radiation Oncology<br>
+                            Other Details: Requires expertise in medical imaging technologies.
+                        </li>
+                        <li>
+                            <strong>Psychiatrist</strong><br>
+                            Description: Diagnose and treat mental health disorders.<br>
+                            Exams Required: NEET, PG Entrance Exams<br>
+                            Specializations: Child Psychiatry, Addiction Psychiatry, Forensic Psychiatry<br>
+                            Other Details: Requires strong understanding of mental health and therapy techniques.
+                        </li>
+                    </ul>
+                `;
+            }
+
+            document.getElementById('pathwayDetails').innerHTML = pathway;
+            document.getElementById('careerPathway').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

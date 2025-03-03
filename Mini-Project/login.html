@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $(".form").on('submit',function(e) {
+            e.preventDefault();
+            var n=$(".Name").val();
+            var p=$(".Password").val();
+            var un=$(".Username").val();
+            var e=$(".Email").val();
+            var pn=$(".PhoneNumber")
+            $.post("https://script.google.com/macros/s/AKfycbzUzLY3RRI6JRnthXqW1Puml3BN5_dlkw9uiYAbemN4hoRTAYnm3YGyTJxsFmcHeE4m/exec",{n:Name,p:Password,un:Username,e:Email,pn:PhoneNumber },function(){
+                alert("done");
+            });
+            
+        });
+        
+    });
+  </script>
+  <title> Responsive Registration Form | CodingLab </title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Title section -->
+    <div class="title">Registration</div>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="#">
+        <div class="user-details">
+          <!-- Input for Full Name -->
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required>
+          </div>
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required>
+          </div>
+          <!-- Input for Phone Number -->
+          
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" required>
+          </div>
+        <!-- Submit button -->
+        <div class="button">
+          <a href="index.html"></a>
+          <input type="submit"  value="Register" >
+
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

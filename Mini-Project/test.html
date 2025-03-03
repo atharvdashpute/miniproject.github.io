@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Guidance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2, h3 {
+            color: #ffeb3b;
+        }
+        select, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        select {
+            background: white;
+            color: black;
+        }
+        button {
+            background: #ffeb3b;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ffc107;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌟 AI Career Guidance System 🌟</h2>
+        <p>Take this short test to determine your ideal career path based on your skills and knowledge.</p>
+        <button onclick="startTest()">Start Test</button>
+        
+        <div id="quiz" class="hidden">
+            <h3>📝 Career Aptitude Test</h3>
+            <form id="quizForm">
+                <p>1. Rate your problem-solving skills:</p>
+                <select name="q1">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <p>2. How proficient are you in analyzing data?</p>
+                <select name="q2">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <p>3. Rate your troubleshooting skills:</p>
+                <select name="q3">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <p>4. How skilled are you in software development?</p>
+                <select name="q4">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <p>5. How comfortable are you with algorithms and data structures?</p>
+                <select name="q5">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <p>6. Rate your experience with web development:</p>
+                <select name="q6">
+                    <option value="poor">Poor</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="excellent">Excellent</option>
+                </select>
+                
+                <button type="button" onclick="getTestResults()">🚀 Submit Test</button>
+            </form>
+            <h3>🎯 Suggested Career:</h3>
+            <p id="testResult"></p>
+            <h3>💻 Suggested Programming Language:</h3>
+            <p id="languageResult"></p>
+        </div>
+    </div>
+    
+    <script>
+        function startTest() {
+            document.getElementById("quiz").classList.remove("hidden");
+        }
+        
+        function getTestResults() {
+            let form = document.getElementById('quizForm');
+            let results = {
+                poor: 0,
+                beginner: 0,
+                excellent: 0
+            };
+            
+            let responses = form.querySelectorAll('select[name^="q"]');
+            responses.forEach(response => {
+                results[response.value]++;
+            });
+            
+            let careerSuggestion = "";
+            let languageSuggestion = "";
+            
+            if (results.excellent > results.beginner && results.excellent > results.poor) {
+                careerSuggestion = "You are highly skilled. Consider careers in AI, Data Science, or Software Engineering.";
+                languageSuggestion = "Recommended: Python, Java, or C++";
+            } else if (results.beginner > results.poor) {
+                careerSuggestion = "You have potential. Focus on improving skills to become a developer or analyst.";
+                languageSuggestion = "Recommended: JavaScript, Python, or Java";
+            } else {
+                careerSuggestion = "Consider foundational learning in IT, Cybersecurity, or Business Analysis.";
+                languageSuggestion = "Recommended: HTML, CSS, and SQL to start with.";
+            }
+            
+            document.getElementById("testResult").innerText = careerSuggestion;
+            document.getElementById("languageResult").innerText = languageSuggestion;
+        }
+    </script>
+</body>
+</html>
